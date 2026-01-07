@@ -1,0 +1,241 @@
+/**
+ * Purelymail Enhancer Styles
+ * Provides a modern, organized interface for managing Purelymail users
+ * Color scheme matches Purelymail's purple theme (#580062)
+ */
+
+/* Main container - ensures consistent font across all elements */
+.pm-enhancer {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* ======================
+   Toolbar Section
+   ====================== */
+
+/* Top toolbar containing search, expand/collapse buttons, and new user link */
+.pm-toolbar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Search input - grows to fill available space */
+.pm-search {
+  flex: 1;
+  min-width: 200px;
+  padding: 10px 15px;
+  font-size: 14px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+/* Purple border on focus to match Purelymail theme */
+.pm-search:focus {
+  border-color: #580062;
+}
+
+/* Base button styles shared by all buttons */
+.pm-btn {
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+/* Primary button (New User) - purple background */
+.pm-btn-primary {
+  background: #580062;
+  color: white;
+}
+
+.pm-btn-primary:hover {
+  background: #7a008a;
+}
+
+/* Secondary buttons (Expand/Collapse All) - gray background */
+.pm-btn-secondary {
+  background: #e0e0e0;
+  color: #333;
+}
+
+.pm-btn-secondary:hover {
+  background: #d0d0d0;
+}
+
+/* ======================
+   Stats Bar
+   ====================== */
+
+/* Stats bar showing total user and domain counts */
+.pm-stats {
+  color: #666;
+  font-size: 13px;
+  margin-bottom: 15px;
+  padding: 8px 12px;
+  background: #f5f5f5;
+  border-radius: 6px;
+}
+
+/* ======================
+   Domain Cards
+   ====================== */
+
+/* Individual domain card container */
+.pm-domain-card {
+  background: white;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+
+/* Elevate shadow on hover for better interactivity feedback */
+.pm-domain-card:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Clickable header with purple gradient background */
+.pm-domain-header {
+  display: flex;
+  align-items: center;
+  padding: 14px 16px;
+  background: linear-gradient(135deg, #580062 0%, #7a008a 100%);
+  color: white;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Lighter gradient on hover */
+.pm-domain-header:hover {
+  background: linear-gradient(135deg, #6a0076 0%, #8c009c 100%);
+}
+
+/* Triangle expand/collapse indicator (▶ or ▼) */
+.pm-domain-toggle {
+  margin-right: 12px;
+  font-size: 12px;
+  opacity: 0.8;
+  transition: transform 0.2s;
+}
+
+/* Domain name - takes up remaining space */
+.pm-domain-name {
+  flex: 1;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+/* Email count badge with semi-transparent white background */
+.pm-domain-count {
+  background: rgba(255,255,255,0.2);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* ======================
+   Email List
+   ====================== */
+
+/* Container for emails within a domain - animated collapse */
+.pm-email-list {
+  max-height: 1000px;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+/* When collapsed, hide email list with smooth animation */
+.pm-domain-card.collapsed .pm-email-list {
+  max-height: 0;
+}
+
+/* Individual email row */
+.pm-email-row {
+  border-bottom: 1px solid #eee;
+}
+
+/* Remove border from last email to avoid double border */
+.pm-email-row:last-child {
+  border-bottom: none;
+}
+
+/* Email link - fills entire row for better click target */
+.pm-email-link {
+  display: block;
+  padding: 12px 16px;
+  color: #333;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+/* Light purple background on hover */
+.pm-email-link:hover {
+  background: #f8f0fa;
+}
+
+/* Local part of email (before @) - bold purple */
+.pm-local-part {
+  font-weight: 500;
+  color: #580062;
+}
+
+/* @ symbol - muted gray */
+.pm-at {
+  color: #999;
+}
+
+/* Domain part of email (after @) - medium gray */
+.pm-domain-part {
+  color: #666;
+}
+
+/* ======================
+   Responsive Design
+   ====================== */
+
+/* Mobile layout - stack toolbar elements vertically */
+@media (max-width: 600px) {
+  .pm-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .pm-search {
+    width: 100%;
+  }
+
+  .pm-btn {
+    text-align: center;
+  }
+}
+
+/* ======================
+   Utility Styles
+   ====================== */
+
+/* Hide original Purelymail table after we've parsed it */
+table.striped {
+  display: none !important;
+}
+
+/* Smooth fade animation for search results */
+.pm-email-row {
+  transition: opacity 0.15s, max-height 0.15s;
+}
+
+/* Fade out hidden email rows */
+.pm-email-row[style*="display: none"] {
+  opacity: 0;
+}

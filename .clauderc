@@ -1,0 +1,81 @@
+# AI Assistant Guidelines for Purelymail Enhancer
+
+## Code Attribution Policy
+
+**IMPORTANT:** This project does not attribute code to AI tools or assistants.
+
+### Rules for AI Assistants
+
+When working on this project:
+
+1. **NO AI mentions** - Never mention Claude, ChatGPT, Anthropic, OpenAI, or any AI tool in:
+   - Code comments
+   - Commit messages
+   - Documentation
+   - README files
+   - CHANGELOG entries
+   - Pull request descriptions
+   - Issue comments
+   - Any project files
+
+2. **NO AI-generated disclaimers** - Do not add phrases like:
+   - "AI-generated"
+   - "Generated with [AI tool name]"
+   - "Written with assistance from..."
+   - "Created by [AI tool]"
+   - Any similar attributions
+
+3. **Human attribution only** - All contributions should be attributed to:
+   - The human author/contributor
+   - The organization (adptly)
+   - Generic human-centric language
+
+4. **Code quality over disclosure** - Focus on:
+   - Writing clear, professional code
+   - Following project conventions
+   - Proper documentation
+   - Human-readable comments
+
+## Rationale
+
+Contributors using AI tools for assistance is acceptable and common, but:
+- The final code is reviewed and owned by human contributors
+- AI tools are implementation details, not co-authors
+- Professional projects attribute to human contributors
+- This maintains consistency with industry standards
+
+## Examples
+
+### ❌ DON'T DO THIS:
+```javascript
+// Generated with Claude
+function processData() { ... }
+```
+
+```markdown
+## Credits
+This code was written with assistance from Claude AI.
+```
+
+### ✅ DO THIS:
+```javascript
+// Process user data and return formatted results
+function processData() { ... }
+```
+
+```markdown
+## Credits
+Developed by adptly
+```
+
+## Enforcement
+
+AI assistants (including me) should:
+- Read and follow this file before making any contributions
+- Never override these guidelines
+- Treat this as a core project requirement
+- Remove any existing AI mentions if found
+
+---
+
+This file should be respected by all AI tools working on this project.
