@@ -48,7 +48,7 @@ Enhancement suggestions are welcome! Please provide:
 
 ### Prerequisites
 
-- Firefox 140.0 or later (required for data privacy declarations)
+- Firefox 142.0 or later (required for data privacy declarations)
 - A Purelymail account with access to the user management page
 - Basic knowledge of HTML, CSS, and JavaScript
 
