@@ -1,7 +1,7 @@
 # Purelymail Enhancer
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Firefox](https://img.shields.io/badge/Firefox-91.0+-orange.svg)](https://www.mozilla.org/firefox/)
+[![Firefox](https://img.shields.io/badge/Firefox-140.0+-orange.svg)](https://www.mozilla.org/firefox/)
 
 A Firefox extension that improves Purelymail's user management interface by grouping email addresses by domain.
 
@@ -140,7 +140,7 @@ This extension only runs on `purelymail.com/manage/users*` and does not collect 
 
 ## Browser Compatibility
 
-- Firefox 91.0 or later
+- Firefox 140.0 or later (required for data privacy declarations)
 - Uses Manifest V2 for maximum compatibility
 
 ## Troubleshooting

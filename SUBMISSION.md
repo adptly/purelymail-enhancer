@@ -17,7 +17,6 @@ This document outlines the steps to submit Purelymail Enhancer to the Firefox Ad
 - [x] `CONTRIBUTING.md` - Contribution guidelines with SemVer policy
 - [x] `SECURITY.md` - Security policy and vulnerability reporting
 - [x] `SUPPORT.md` - Support and troubleshooting guide
-- [x] `.github/workflows/validate.yml` - CI validation workflow
 - [x] `screenshots/README.md` - Screenshot capture instructions
 
 ### Before Submitting
