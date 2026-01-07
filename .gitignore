@@ -3,7 +3,7 @@
 *.zip
 web-ext-artifacts/
 
-# CEF (Claude Engineering Framework)
+# Development artifacts
 .cef/
 
 # Editor files
@@ -42,5 +42,4 @@ screenshots/*.jpeg
 screenshots/*.gif
 !screenshots/README.md
 
-# AI assistant config should be committed
-# .clauderc is intentionally tracked
+# AI assistant config is intentionally tracked
