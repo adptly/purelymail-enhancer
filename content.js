@@ -32,7 +32,9 @@
     if (main) {
       // Preserve the page title
       const title = main.querySelector('h2');
-      main.innerHTML = '';
+      while (main.firstChild) {
+        main.removeChild(main.firstChild);
+      }
       if (title) main.appendChild(title);
       main.appendChild(container);
 
@@ -108,12 +110,32 @@
     // Create toolbar with search and control buttons
     const toolbar = document.createElement('div');
     toolbar.className = 'pm-toolbar';
-    toolbar.innerHTML = `
-      <input type="text" id="pm-search" placeholder="Search emails..." class="pm-search">
-      <button id="pm-expand-all" class="pm-btn pm-btn-secondary">Expand All</button>
-      <button id="pm-collapse-all" class="pm-btn pm-btn-secondary">Collapse All</button>
-      <a href="/manage/user/new" class="pm-btn pm-btn-primary">+ New User</a>
-    `;
+
+    const searchInput = document.createElement('input');
+    searchInput.type = 'text';
+    searchInput.id = 'pm-search';
+    searchInput.placeholder = 'Search emails...';
+    searchInput.className = 'pm-search';
+
+    const expandAllBtn = document.createElement('button');
+    expandAllBtn.id = 'pm-expand-all';
+    expandAllBtn.className = 'pm-btn pm-btn-secondary';
+    expandAllBtn.textContent = 'Expand All';
+
+    const collapseAllBtn = document.createElement('button');
+    collapseAllBtn.id = 'pm-collapse-all';
+    collapseAllBtn.className = 'pm-btn pm-btn-secondary';
+    collapseAllBtn.textContent = 'Collapse All';
+
+    const newUserLink = document.createElement('a');
+    newUserLink.href = '/manage/user/new';
+    newUserLink.className = 'pm-btn pm-btn-primary';
+    newUserLink.textContent = '+ New User';
+
+    toolbar.appendChild(searchInput);
+    toolbar.appendChild(expandAllBtn);
+    toolbar.appendChild(collapseAllBtn);
+    toolbar.appendChild(newUserLink);
     container.appendChild(toolbar);
 
     // Create stats bar showing total counts
@@ -155,11 +177,22 @@
     // Create clickable header with domain name and email count
     const header = document.createElement('div');
     header.className = 'pm-domain-header';
-    header.innerHTML = `
-      <span class="pm-domain-toggle">▶</span>
-      <span class="pm-domain-name">${group.domain}</span>
-      <span class="pm-domain-count">${group.emails.length}</span>
-    `;
+
+    const toggle = document.createElement('span');
+    toggle.className = 'pm-domain-toggle';
+    toggle.textContent = '▶';
+
+    const domainName = document.createElement('span');
+    domainName.className = 'pm-domain-name';
+    domainName.textContent = group.domain;
+
+    const domainCount = document.createElement('span');
+    domainCount.className = 'pm-domain-count';
+    domainCount.textContent = group.emails.length;
+
+    header.appendChild(toggle);
+    header.appendChild(domainName);
+    header.appendChild(domainCount);
 
     // Create list of emails for this domain
     const emailList = document.createElement('div');
@@ -169,11 +202,27 @@
       const emailRow = document.createElement('div');
       emailRow.className = 'pm-email-row';
       emailRow.dataset.email = item.email.toLowerCase();
-      emailRow.innerHTML = `
-        <a href="${item.href}" class="pm-email-link">
-          <span class="pm-local-part">${item.localPart}</span><span class="pm-at">@</span><span class="pm-domain-part">${item.domain}</span>
-        </a>
-      `;
+
+      const emailLink = document.createElement('a');
+      emailLink.href = item.href;
+      emailLink.className = 'pm-email-link';
+
+      const localPart = document.createElement('span');
+      localPart.className = 'pm-local-part';
+      localPart.textContent = item.localPart;
+
+      const atSymbol = document.createElement('span');
+      atSymbol.className = 'pm-at';
+      atSymbol.textContent = '@';
+
+      const domainPart = document.createElement('span');
+      domainPart.className = 'pm-domain-part';
+      domainPart.textContent = item.domain;
+
+      emailLink.appendChild(localPart);
+      emailLink.appendChild(atSymbol);
+      emailLink.appendChild(domainPart);
+      emailRow.appendChild(emailLink);
       emailList.appendChild(emailRow);
     });
 
